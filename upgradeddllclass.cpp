@@ -1,3 +1,11 @@
+/*
+
+lab22: upgrade the dll class
+COMSC-210
+Naveen Islam
+IDE: vscode
+
+*/
 #include <iostream>
 using namespace std;
 
@@ -185,18 +193,18 @@ int main() {
 
     // asks user which position they would like to delete and outputs the list after that position has been deleted
     int deletePos;
-    cout << "which position would you like to delete: " << endl;
+    cout << "\nwhich position would you like to delete: ";
     cin >> deletePos;
     list.delete_pos(deletePos-1);
     list.print();
 
     // deletes the first item in the list
-    cout << "deleting head node" << endl;
+    cout << "\ndeleting head node" << endl;
     list.pop_front();
     list.print();
 
     // deletes the last item of the list
-    cout << "deleting tail node" << endl;
+    cout << "\ndeleting tail node" << endl;
     list.pop_back();
     list.print();
     return 0;
