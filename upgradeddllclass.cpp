@@ -132,7 +132,13 @@ public:
 
     // deletes the tail node
     void pop_back() {
-
+        Node* temp = tail;
+        tail = tail->prev;
+        if (tail != nullptr) {
+            tail->next = nullptr;
+        } else {
+            head = nullptr;
+        }
     }
 
     void print() {
@@ -181,11 +187,17 @@ int main() {
     int deletePos;
     cout << "which position would you like to delete: " << endl;
     cin >> deletePos;
-    list.delete_pos(deletePos);
+    list.delete_pos(deletePos-1);
     list.print();
 
+    // deletes the first item in the list
     cout << "deleting head node" << endl;
     list.pop_front();
+    list.print();
+
+    // deletes the last item of the list
+    cout << "deleting tail node" << endl;
+    list.pop_back();
     list.print();
     return 0;
 }
