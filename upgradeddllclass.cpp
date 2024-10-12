@@ -100,6 +100,7 @@ public:
         delete temp;
     }
 
+    // new delete_pos function. deletes a node by position.
     void delete_pos(int pos) {
         Node* temp = head;
         for (int i =0; i < pos; i++) {
@@ -116,6 +117,22 @@ public:
         } else {
             tail = temp->prev;
         }
+    }
+
+    // delete the head node
+    void pop_front() {
+        Node* temp = head;
+        head = head->next;
+        if (head != nullptr) {
+            head->prev = nullptr;
+        } else {
+            tail = nullptr;
+        }
+    }
+
+    // deletes the tail node
+    void pop_back() {
+
     }
 
     void print() {
@@ -160,10 +177,15 @@ int main() {
     cout << "List backward: ";
     list.print_reverse();
 
-    cout << "Deleting list, then trying to print.\n";
-    list.~DoublyLinkedList();
-    cout << "List forward: ";
+    // asks user which position they would like to delete and outputs the list after that position has been deleted
+    int deletePos;
+    cout << "which position would you like to delete: " << endl;
+    cin >> deletePos;
+    list.delete_pos(deletePos);
     list.print();
 
+    cout << "deleting head node" << endl;
+    list.pop_front();
+    list.print();
     return 0;
 }
